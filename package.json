@@ -1,0 +1,38 @@
+{
+  "name": "aws-cdk-webpack-lambda-function",
+  "version": "0.1.0",
+  "description": "This library provides constructs for Node.js Lambda function bundled using webpack.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masahirompp/aws-cdk-webpack-lambda-function.git"
+  },
+  "keywords": [
+    "aws-cdk",
+    "lambda",
+    "webpack"
+  ],
+  "author": "Masahiro Onohara <masahirompp@gmail.com> (https://github.com/masahirompp)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/masahirompp/aws-cdk-webpack-lambda-function/issues"
+  },
+  "homepage": "https://github.com/masahirompp/aws-cdk-webpack-lambda-function#readme",
+  "peerDependencies": {
+    "@aws-cdk/aws-lambda": "*",
+    "@aws-cdk/core": "*",
+    "webpack": "*",
+    "webpack-cli": "*"
+  },
+  "devDependencies": {
+    "@aws-cdk/aws-lambda": "^1.33.1",
+    "@aws-cdk/core": "^1.33.1",
+    "@types/node": "^13.13.0",
+    "@types/webpack": "^4.41.12",
+    "typescript": "^3.8.3"
+  }
+}
