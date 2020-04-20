@@ -57,12 +57,12 @@ The runtime environment. Only runtimes of the Node.js family are supported.
 
 default: NODEJS_12
 
-### outputBaseDir: string
+### buildDir: string
 
-The output root directory.
+The build directory.
 
-default: Output to the same directory as entry.
+default: `.build` in the entry file directory
 
-### other options
+### ...other options
 
 All other properties of lambda.Function are supported, see also the [AWS Lambda construct library](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda).
