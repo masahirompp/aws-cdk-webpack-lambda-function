@@ -29,7 +29,7 @@ This library provides constructs for Node.js Lambda function bundled using webpa
    ```typescript
    import { WebpackFunction } from 'aws-cdk-webpack-lambda-function'
 
-   new WebpackFunction(this, this.name('QueryMyInstructorsFunction'), {
+   new WebpackFunction(this, 'YourFunction', {
      entry: 'your/path/to/function.ts',
      config: 'your/path/to/webpack.config.js',
    })
