@@ -21,6 +21,22 @@ This library provides constructs for Node.js Lambda function bundled using webpa
      externals: ['aws-sdk'], // important!!!
      devtool: 'source-map', // if needed
      optimization: { minimize: false }, // if needed
+     // for TypeScript
+     module: {
+       rules: [
+         {
+           test: /\.ts$/,
+           use: {
+             loader: 'ts-loader',
+             options,
+           },
+           exclude: /node_modules/,
+         },
+        ],
+     },
+     resolve: {
+       extensions: ['.js', '.ts'],
+     },
    }
    ```
 
