@@ -12,7 +12,7 @@ This library provides constructs for Node.js Lambda function bundled using webpa
    $ yarn add -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
    ```
 
-1. add webpack.config.json:
+1. add webpack.config.js:
 
    ```js
    module.exports = {
@@ -28,7 +28,13 @@ This library provides constructs for Node.js Lambda function bundled using webpa
            test: /\.ts$/,
            use: {
              loader: 'ts-loader',
-             options,
+             options: {
+               // configFile: 'your/path/to/tsconfig.json',
+               // colors: true,
+               // logInfoToStdOut: true,
+               // logLevel: 'INFO',
+               transpileOnly: true,
+             },
            },
            exclude: /node_modules/,
          },
