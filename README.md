@@ -18,7 +18,7 @@ This library provides constructs for Node.js Lambda function bundled using webpa
    module.exports = {
      mode: 'production', // production or development
      target: 'node',
-     externals: ['aws-sdk'], // important!!!
+     externals: [/^aws-sdk(\/.+)?$/], // important!!!
      devtool: 'source-map', // if needed
      optimization: { minimize: false }, // if needed
      // for TypeScript
