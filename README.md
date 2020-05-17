@@ -9,7 +9,8 @@ This library provides constructs for Node.js Lambda function bundled using webpa
 1. install using yarn:
 
    ```sh
-   $ yarn add -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
+   yarn add -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
+   # npm i -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
    ```
 
 1. add webpack.config.js:
@@ -29,7 +30,7 @@ This library provides constructs for Node.js Lambda function bundled using webpa
            use: {
              loader: 'ts-loader',
              options: {
-               // configFile: 'your/path/to/tsconfig.json',
+               configFile: 'your/path/to/tsconfig.json', // if needed
                // colors: true,
                // logInfoToStdOut: true,
                // logLevel: 'INFO',
@@ -43,6 +44,19 @@ This library provides constructs for Node.js Lambda function bundled using webpa
      resolve: {
        extensions: ['.js', '.ts'],
      },
+   }
+   ```
+
+1. (Optional) add tsconfig.json for lambda
+
+   ```json
+   {
+     "extends": "../ ... /tsconfig.json",
+     "compilerOptions": {
+       "importHelpers": false,
+       "target": "ES2018",
+       "noEmit": false
+     }
    }
    ```
 
