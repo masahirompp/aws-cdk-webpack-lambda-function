@@ -1,6 +1,6 @@
 {
   "name": "aws-cdk-webpack-lambda-function",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "This library provides constructs for Node.js Lambda function bundled using webpack.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
