@@ -73,7 +73,11 @@ export class WebpackFunction extends Function {
 }
 
 export class WebpackSingletonFunction extends SingletonFunction {
-  constructor(scope: Construct, id: string, props: WebpackSingletonFunctionProps) {
+  constructor(
+    scope: Construct,
+    id: string,
+    props: WebpackSingletonFunctionProps
+  ) {
     const { runtime, handlerDir, outputBasename, handler } = preProcess(props);
 
     super(scope, id, {
@@ -106,7 +110,7 @@ function preProcess(props: WebpackFunctionProps) {
     createHash("sha256").update(props.entry).digest("hex")
   );
   const outputBasename = basename(props.entry, extname(props.entry));
-  
+
   // Build with webpack
   const builder = new Builder({
     entry: resolve(props.entry),

@@ -48,14 +48,17 @@ export class Builder {
       this.options.output,
     ].filter(Boolean) as string[];
 
-    const results = spawnSync(this.webpackBinPath, args);
+    const results = spawnSync(this.webpackBinPath, args, { encoding: "utf-8" });
 
     if (results.error) {
       throw results.error;
     }
 
     if (results.status !== 0) {
-      throw new Error(results.stdout.toString().trim());
+      const { pid, status, stderr, signal, stdout } = results;
+      throw new Error(
+        JSON.stringify({ pid, signal, status, stdout, stderr }, null, 2)
+      );
     }
   }
 }
