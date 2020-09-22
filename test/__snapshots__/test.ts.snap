@@ -1,0 +1,176 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CloudFormation Test 1`] = `
+Object {
+  "SingletonLambdabe82c13fa959483791d71a3aabb2626aEEBB681F": Object {
+    "DependsOn": Array [
+      "SingletonLambdabe82c13fa959483791d71a3aabb2626aServiceRole406DEDB3",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": Object {
+          "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3BucketEE2A026C",
+        },
+        "S3Key": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::Select": Array [
+                  0,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+      "Handler": "testFunction.handler",
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "SingletonLambdabe82c13fa959483791d71a3aabb2626aServiceRole406DEDB3",
+          "Arn",
+        ],
+      },
+      "Runtime": "nodejs12.x",
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+  "SingletonLambdabe82c13fa959483791d71a3aabb2626aServiceRole406DEDB3": Object {
+    "Properties": Object {
+      "AssumeRolePolicyDocument": Object {
+        "Statement": Array [
+          Object {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": Object {
+              "Service": "lambda.amazonaws.com",
+            },
+          },
+        ],
+        "Version": "2012-10-17",
+      },
+      "ManagedPolicyArns": Array [
+        Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            ],
+          ],
+        },
+      ],
+    },
+    "Type": "AWS::IAM::Role",
+  },
+  "WebpackFunction81CF8DFB": Object {
+    "DependsOn": Array [
+      "WebpackFunctionServiceRole9A70057E",
+    ],
+    "Properties": Object {
+      "Code": Object {
+        "S3Bucket": Object {
+          "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3BucketEE2A026C",
+        },
+        "S3Key": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              Object {
+                "Fn::Select": Array [
+                  0,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                      },
+                    ],
+                  },
+                ],
+              },
+              Object {
+                "Fn::Select": Array [
+                  1,
+                  Object {
+                    "Fn::Split": Array [
+                      "||",
+                      Object {
+                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          ],
+        },
+      },
+      "Handler": "testFunction.handler",
+      "Role": Object {
+        "Fn::GetAtt": Array [
+          "WebpackFunctionServiceRole9A70057E",
+          "Arn",
+        ],
+      },
+      "Runtime": "nodejs12.x",
+    },
+    "Type": "AWS::Lambda::Function",
+  },
+  "WebpackFunctionServiceRole9A70057E": Object {
+    "Properties": Object {
+      "AssumeRolePolicyDocument": Object {
+        "Statement": Array [
+          Object {
+            "Action": "sts:AssumeRole",
+            "Effect": "Allow",
+            "Principal": Object {
+              "Service": "lambda.amazonaws.com",
+            },
+          },
+        ],
+        "Version": "2012-10-17",
+      },
+      "ManagedPolicyArns": Array [
+        Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+            ],
+          ],
+        },
+      ],
+    },
+    "Type": "AWS::IAM::Role",
+  },
+}
+`;

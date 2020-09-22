@@ -3,3 +3,5 @@ README.md
 lib/index.ts
 lib/function.ts
 lib/builder.ts
+test
+jest.config.js

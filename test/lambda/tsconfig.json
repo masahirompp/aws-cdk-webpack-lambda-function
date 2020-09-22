@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "importHelpers": false,
+    "jsx": "preserve",
+    "target": "ES2019",
+    "module": "ES2015",
+    "noEmit": false
+  }
+}
