@@ -1,4 +1,5 @@
-import { spawnSync } from "child_process";
+import * as webpack from "webpack";
+import {Compiler, Configuration} from "webpack";
 
 /**
  * Builder options
@@ -24,41 +25,22 @@ export interface BuilderOptions {
  * Builder
  */
 export class Builder {
-  private readonly webpackBinPath: string;
+  private readonly webpack: Compiler;
 
   constructor(private readonly options: BuilderOptions) {
-    try {
-      this.webpackBinPath = require.resolve("webpack-cli");
-    } catch (err) {
-      throw new Error(
-        "It looks like webpack-cli is not installed. Please install webpack and webpack-cli with yarn or npm."
-      );
-    }
+      this.webpack = webpack(require(this.options.config) as Configuration)
+      this.webpack.options.entry = this.options.entry
+      this.webpack.options.output = {
+        libraryTarget: "commonjs",
+        path: this.options.output
+      }
   }
 
   public build(): void {
-    const args = [
-      "--config",
-      this.options.config,
-      "--output-library-target",
-      "commonjs",
-      "--entry",
-      this.options.entry,
-      "--output",
-      this.options.output,
-    ].filter(Boolean) as string[];
-
-    const results = spawnSync(this.webpackBinPath, args, { encoding: "utf-8" });
-
-    if (results.error) {
-      throw results.error;
-    }
-
-    if (results.status !== 0) {
-      const { pid, status, stderr, signal, stdout } = results;
-      throw new Error(
-        JSON.stringify({ pid, signal, status, stdout, stderr }, null, 2)
-      );
-    }
+    this.webpack.run((err : Error) => {
+      if(err) {
+        throw err
+      }
+    })
   }
 }
