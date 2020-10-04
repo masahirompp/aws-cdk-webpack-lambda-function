@@ -9,7 +9,7 @@ Object {
     "Properties": Object {
       "Code": Object {
         "S3Bucket": Object {
-          "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3BucketEE2A026C",
+          "Ref": "[HASH REMOVED]",
         },
         "S3Key": Object {
           "Fn::Join": Array [
@@ -22,7 +22,7 @@ Object {
                     "Fn::Split": Array [
                       "||",
                       Object {
-                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                        "Ref": "[HASH REMOVED]",
                       },
                     ],
                   },
@@ -35,7 +35,7 @@ Object {
                     "Fn::Split": Array [
                       "||",
                       Object {
-                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                        "Ref": "[HASH REMOVED]",
                       },
                     ],
                   },
@@ -94,7 +94,7 @@ Object {
     "Properties": Object {
       "Code": Object {
         "S3Bucket": Object {
-          "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3BucketEE2A026C",
+          "Ref": "[HASH REMOVED]",
         },
         "S3Key": Object {
           "Fn::Join": Array [
@@ -107,7 +107,7 @@ Object {
                     "Fn::Split": Array [
                       "||",
                       Object {
-                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                        "Ref": "[HASH REMOVED]",
                       },
                     ],
                   },
@@ -120,7 +120,7 @@ Object {
                     "Fn::Split": Array [
                       "||",
                       Object {
-                        "Ref": "AssetParametersab6bf06f9a94413ea2b8d2e4fc1eb0211279a113f031530a31f99e459a3b74e5S3VersionKeyC26211F3",
+                        "Ref": "[HASH REMOVED]",
                       },
                     ],
                   },
