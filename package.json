@@ -28,21 +28,20 @@
   "peerDependencies": {
     "@aws-cdk/aws-lambda": "*",
     "@aws-cdk/core": "*",
-    "webpack": "*",
-    "webpack-cli": "*"
+    "webpack": "^5.0.0",
+    "webpack-cli": "^4.0.0"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^1.66.0",
-    "@aws-cdk/aws-lambda": "^1.66.0",
-    "@aws-cdk/core": "^1.66.0",
-    "@types/jest": "^26.0.14",
-    "@types/node": "^14.11.2",
-    "@types/webpack": "^4.41.22",
-    "jest": "^26.4.2",
-    "ts-jest": "^26.4.1",
-    "ts-loader": "^8.0.4",
-    "typescript": "^4.0.3",
-    "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "@aws-cdk/assert": "^1.71.0",
+    "@aws-cdk/aws-lambda": "^1.71.0",
+    "@aws-cdk/core": "^1.71.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.4.3",
+    "ts-loader": "^8.0.9",
+    "typescript": "^4.0.5",
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
   }
 }

@@ -13,14 +13,16 @@ This library provides constructs for Node.js Lambda function bundled using webpa
    # npm i -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
    ```
 
+   Note: webpack@5 required.
+
 1. add webpack.config.js:
 
    ```js
    module.exports = {
-     mode: 'production', // production or development
-     target: 'node',
+     mode: "production", // production or development
+     target: "node",
      externals: [/^aws-sdk(\/.+)?$/], // important!!!
-     devtool: 'source-map', // if needed
+     devtool: "source-map", // if needed
      optimization: { minimize: false }, // if needed
      // for TypeScript
      module: {
@@ -28,9 +30,9 @@ This library provides constructs for Node.js Lambda function bundled using webpa
          {
            test: /\.ts$/,
            use: {
-             loader: 'ts-loader',
+             loader: "ts-loader",
              options: {
-               configFile: 'your/path/to/tsconfig.json', // if needed
+               configFile: "your/path/to/tsconfig.json", // if needed
                // colors: true,
                // logInfoToStdOut: true,
                // logLevel: 'INFO',
@@ -39,12 +41,12 @@ This library provides constructs for Node.js Lambda function bundled using webpa
            },
            exclude: /node_modules/,
          },
-        ],
+       ],
      },
      resolve: {
-       extensions: ['.js', '.ts'],
+       extensions: [".js", ".ts"],
      },
-   }
+   };
    ```
 
 1. (Optional) add tsconfig.json for lambda
@@ -63,12 +65,12 @@ This library provides constructs for Node.js Lambda function bundled using webpa
 1. your cdk source code:
 
    ```typescript
-   import { WebpackFunction } from 'aws-cdk-webpack-lambda-function'
+   import { WebpackFunction } from "aws-cdk-webpack-lambda-function";
 
-   new WebpackFunction(this, 'YourFunction', {
-     entry: 'your/path/to/function.ts',
-     config: 'your/path/to/webpack.config.js',
-   })
+   new WebpackFunction(this, "YourFunction", {
+     entry: "your/path/to/function.ts",
+     config: "your/path/to/webpack.config.js",
+   });
    ```
 
 ## Options

@@ -1,5 +1,5 @@
-import * as webpack from "webpack";
-import { Compiler, Configuration } from "webpack";
+import { spawnSync } from "child_process";
+import { resolve, basename, dirname } from "path";
 
 /**
  * Builder options
@@ -25,23 +25,50 @@ export interface BuilderOptions {
  * Builder
  */
 export class Builder {
-  private readonly webpack: Compiler;
+  private readonly webpackBinPath: string;
 
   constructor(private readonly options: BuilderOptions) {
-    this.webpack = webpack(require(this.options.config) as Configuration);
-    this.webpack.options.entry = this.options.entry;
-    this.webpack.options.output = {
-      libraryTarget: "commonjs",
-      path: this.options.output,
-      hashFunction: "md4",
-    };
+    try {
+      this.webpackBinPath = resolve(
+        require.resolve("webpack-cli"),
+        "..",
+        "..",
+        "..",
+        ".bin",
+        "webpack-cli"
+      );
+    } catch (err) {
+      throw new Error(
+        "It looks like webpack-cli is not installed. Please install webpack and webpack-cli with yarn or npm."
+      );
+    }
   }
 
   public build(): void {
-    this.webpack.run((err: Error) => {
-      if (err) {
-        throw err;
-      }
-    });
+    const args = [
+      "--config",
+      resolve(this.options.config),
+      "--output-library-type",
+      "commonjs",
+      "--entry",
+      resolve(this.options.entry),
+      "--output-path",
+      resolve(dirname(this.options.output)),
+      "--output-filename",
+      basename(this.options.output),
+    ].filter(Boolean) as string[];
+
+    const results = spawnSync(this.webpackBinPath, args, { encoding: "utf-8" });
+
+    if (results.error) {
+      throw results.error;
+    }
+
+    if (results.status !== 0) {
+      const { pid, status, stderr, signal, stdout } = results;
+      throw new Error(
+        JSON.stringify({ pid, signal, status, stdout, stderr }, null, 2)
+      );
+    }
   }
 }
