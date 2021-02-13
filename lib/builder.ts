@@ -1,4 +1,4 @@
-const spawn = require("cross-spawn");
+import * as spawn from "cross-spawn";
 import { resolve, basename, dirname } from "path";
 
 /**

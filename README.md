@@ -104,3 +104,10 @@ default: `.build` in the entry file directory
 ### ...other options
 
 All other properties of lambda.Function are supported, see also the [AWS Lambda construct library](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda).
+
+## Run tests
+
+```sh
+yarn build
+yarn test
+```
