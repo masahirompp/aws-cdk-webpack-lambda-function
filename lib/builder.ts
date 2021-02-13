@@ -1,4 +1,4 @@
-import { spawnSync } from "child_process";
+const spawn = require("cross-spawn");
 import { resolve, basename, dirname } from "path";
 
 /**
@@ -58,7 +58,9 @@ export class Builder {
       basename(this.options.output),
     ].filter(Boolean) as string[];
 
-    const results = spawnSync(this.webpackBinPath, args, { encoding: "utf-8" });
+    const results = spawn.sync(this.webpackBinPath, args, {
+      encoding: "utf-8",
+    });
 
     if (results.error) {
       throw results.error;
