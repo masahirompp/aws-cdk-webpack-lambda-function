@@ -101,6 +101,12 @@ The build directory.
 
 default: `.build` in the entry file directory
 
+### ensureUniqueBuildPath: boolean
+
+Control whether the build output is placed in a unique directory (sha256 hash) or not. This can be disabled to simplify development and debugging.
+
+default: true
+
 ### ...other options
 
 All other properties of lambda.Function are supported, see also the [AWS Lambda construct library](https://github.com/aws/aws-cdk/tree/master/packages/%40aws-cdk/aws-lambda).
