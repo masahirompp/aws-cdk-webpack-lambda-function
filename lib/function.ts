@@ -49,6 +49,13 @@ export interface WebpackFunctionProps extends FunctionOptions {
    * @default - `.build` in the entry file directory
    */
   readonly buildDir?: string;
+
+  /**
+   * Ensure a unique build path
+   *
+   * @default - true
+   */
+  readonly ensureUniqueBuildPath?: boolean;
 }
 
 export interface WebpackSingletonFunctionProps extends WebpackFunctionProps {
@@ -105,10 +112,8 @@ function preProcess(props: WebpackFunctionProps) {
   const handler = props.handler || "handler";
   const runtime = props.runtime || Runtime.NODEJS_12_X;
   const buildDir = props.buildDir || join(dirname(props.entry), ".build");
-  const handlerDir = join(
-    buildDir,
-    createHash("sha256").update(props.entry).digest("hex")
-  );
+  const ensureUniqueBuildPath = typeof props.ensureUniqueBuildPath === 'boolean' ? props.ensureUniqueBuildPath : true;
+  const handlerDir = ensureUniqueBuildPath ? createUniquePath(buildDir, props.entry) : buildDir;
   const outputBasename = basename(props.entry, extname(props.entry));
 
   // Build with webpack
@@ -119,4 +124,11 @@ function preProcess(props: WebpackFunctionProps) {
   });
   builder.build();
   return { runtime, handlerDir, outputBasename, handler };
+}
+
+function createUniquePath(buildDir: string, currentPath: string) {
+  return join(
+    buildDir,
+    createHash("sha256").update(currentPath).digest("hex")
+  );
 }
