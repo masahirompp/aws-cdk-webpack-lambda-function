@@ -93,7 +93,7 @@ default: "handler"
 
 The runtime environment. Only runtimes of the Node.js family are supported.
 
-default: NODEJS_12
+default: NODEJS_14
 
 ### buildDir: string
 

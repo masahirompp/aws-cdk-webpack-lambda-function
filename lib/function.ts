@@ -39,7 +39,7 @@ export interface WebpackFunctionProps extends FunctionOptions {
    * The runtime environment. Only runtimes of the Node.js family are
    * supported.
    *
-   * @default - NODEJS_12
+   * @default - NODEJS_14
    */
   readonly runtime?: Runtime;
 
@@ -110,10 +110,15 @@ function preProcess(props: WebpackFunctionProps) {
     throw new Error(`Cannot find webpack config file at ${props.config}`);
   }
   const handler = props.handler || "handler";
-  const runtime = props.runtime || Runtime.NODEJS_12_X;
+  const runtime = props.runtime || Runtime.NODEJS_14_X;
   const buildDir = props.buildDir || join(dirname(props.entry), ".build");
-  const ensureUniqueBuildPath = typeof props.ensureUniqueBuildPath === 'boolean' ? props.ensureUniqueBuildPath : true;
-  const handlerDir = ensureUniqueBuildPath ? createUniquePath(buildDir, props.entry) : buildDir;
+  const ensureUniqueBuildPath =
+    typeof props.ensureUniqueBuildPath === "boolean"
+      ? props.ensureUniqueBuildPath
+      : true;
+  const handlerDir = ensureUniqueBuildPath
+    ? createUniquePath(buildDir, props.entry)
+    : buildDir;
   const outputBasename = basename(props.entry, extname(props.entry));
 
   // Build with webpack
@@ -127,8 +132,5 @@ function preProcess(props: WebpackFunctionProps) {
 }
 
 function createUniquePath(buildDir: string, currentPath: string) {
-  return join(
-    buildDir,
-    createHash("sha256").update(currentPath).digest("hex")
-  );
+  return join(buildDir, createHash("sha256").update(currentPath).digest("hex"));
 }
