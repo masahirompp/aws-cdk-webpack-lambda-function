@@ -1,16 +1,17 @@
-import { createHash } from "crypto";
-import { existsSync } from "fs";
-import { basename, dirname, extname, join, resolve } from "path";
+import {createHash} from "crypto";
+import {existsSync} from "fs";
+import {basename, dirname, extname, join, resolve} from "path";
+import {Construct} from "constructs";
 import {
-  Code,
   Function,
+  Code,
   FunctionOptions,
   Runtime,
   RuntimeFamily,
-  SingletonFunction,
-} from "@aws-cdk/aws-lambda";
-import { Construct } from "@aws-cdk/core";
-import { Builder } from "./builder";
+  SingletonFunction
+} from "aws-cdk-lib/aws-lambda";
+import {Builder} from "./builder";
+
 
 /**
  * Properties for a NodejsFunction
@@ -68,7 +69,7 @@ export interface WebpackSingletonFunctionProps extends WebpackFunctionProps {
  */
 export class WebpackFunction extends Function {
   constructor(scope: Construct, id: string, props: WebpackFunctionProps) {
-    const { runtime, handlerDir, outputBasename, handler } = preProcess(props);
+    const {runtime, handlerDir, outputBasename, handler} = preProcess(props);
 
     super(scope, id, {
       ...props,
@@ -81,11 +82,11 @@ export class WebpackFunction extends Function {
 
 export class WebpackSingletonFunction extends SingletonFunction {
   constructor(
-    scope: Construct,
-    id: string,
-    props: WebpackSingletonFunctionProps
+      scope: Construct,
+      id: string,
+      props: WebpackSingletonFunctionProps
   ) {
-    const { runtime, handlerDir, outputBasename, handler } = preProcess(props);
+    const {runtime, handlerDir, outputBasename, handler} = preProcess(props);
 
     super(scope, id, {
       ...props,
@@ -113,12 +114,12 @@ function preProcess(props: WebpackFunctionProps) {
   const runtime = props.runtime || Runtime.NODEJS_14_X;
   const buildDir = props.buildDir || join(dirname(props.entry), ".build");
   const ensureUniqueBuildPath =
-    typeof props.ensureUniqueBuildPath === "boolean"
-      ? props.ensureUniqueBuildPath
-      : true;
+      typeof props.ensureUniqueBuildPath === "boolean"
+          ? props.ensureUniqueBuildPath
+          : true;
   const handlerDir = ensureUniqueBuildPath
-    ? createUniquePath(buildDir, props.entry)
-    : buildDir;
+      ? createUniquePath(buildDir, props.entry)
+      : buildDir;
   const outputBasename = basename(props.entry, extname(props.entry));
 
   // Build with webpack
@@ -128,7 +129,7 @@ function preProcess(props: WebpackFunctionProps) {
     config: resolve(props.config),
   });
   builder.build();
-  return { runtime, handlerDir, outputBasename, handler };
+  return {runtime, handlerDir, outputBasename, handler};
 }
 
 function createUniquePath(buildDir: string, currentPath: string) {
