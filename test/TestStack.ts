@@ -1,5 +1,6 @@
-import { App, Construct, Stack, StackProps } from "@aws-cdk/core";
-import { WebpackFunction, WebpackSingletonFunction } from "../lib/index";
+import { Construct} from "constructs";
+import {WebpackFunction, WebpackSingletonFunction} from "../lib/index";
+import {App, Stack, StackProps} from "aws-cdk-lib";
 
 export class TestStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {

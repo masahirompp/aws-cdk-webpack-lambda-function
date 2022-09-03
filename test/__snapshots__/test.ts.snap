@@ -9,41 +9,9 @@ Object {
     "Properties": Object {
       "Code": Object {
         "S3Bucket": Object {
-          "Ref": "[HASH REMOVED]",
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
         },
-        "S3Key": Object {
-          "Fn::Join": Array [
-            "",
-            Array [
-              Object {
-                "Fn::Select": Array [
-                  0,
-                  Object {
-                    "Fn::Split": Array [
-                      "||",
-                      Object {
-                        "Ref": "[HASH REMOVED]",
-                      },
-                    ],
-                  },
-                ],
-              },
-              Object {
-                "Fn::Select": Array [
-                  1,
-                  Object {
-                    "Fn::Split": Array [
-                      "||",
-                      Object {
-                        "Ref": "[HASH REMOVED]",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          ],
-        },
+        "S3Key": "6fe6016e571754f46dea58f2c7e4cd52de0395bd63fc97aa04bb2a1b4908e1af.zip",
       },
       "Handler": "testFunction.handler",
       "Role": Object {
@@ -94,41 +62,9 @@ Object {
     "Properties": Object {
       "Code": Object {
         "S3Bucket": Object {
-          "Ref": "[HASH REMOVED]",
+          "Fn::Sub": "cdk-hnb659fds-assets-\${AWS::AccountId}-\${AWS::Region}",
         },
-        "S3Key": Object {
-          "Fn::Join": Array [
-            "",
-            Array [
-              Object {
-                "Fn::Select": Array [
-                  0,
-                  Object {
-                    "Fn::Split": Array [
-                      "||",
-                      Object {
-                        "Ref": "[HASH REMOVED]",
-                      },
-                    ],
-                  },
-                ],
-              },
-              Object {
-                "Fn::Select": Array [
-                  1,
-                  Object {
-                    "Fn::Split": Array [
-                      "||",
-                      Object {
-                        "Ref": "[HASH REMOVED]",
-                      },
-                    ],
-                  },
-                ],
-              },
-            ],
-          ],
-        },
+        "S3Key": "6fe6016e571754f46dea58f2c7e4cd52de0395bd63fc97aa04bb2a1b4908e1af.zip",
       },
       "Handler": "testFunction.handler",
       "Role": Object {
