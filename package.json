@@ -25,6 +25,9 @@
     "url": "https://github.com/masahirompp/aws-cdk-webpack-lambda-function/issues"
   },
   "homepage": "https://github.com/masahirompp/aws-cdk-webpack-lambda-function#readme",
+  "engines": {
+    "node": ">= 14.15.0"
+  },
   "peerDependencies": {
     "aws-cdk-lib": "*",
     "aws-cdk": "*",
@@ -36,7 +39,6 @@
     "cross-spawn": "^7.0.3"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "^2.39.1",
     "aws-cdk-lib": "^2.39.1",
     "aws-cdk": "2.39.1",
     "constructs": "^10.1.92",

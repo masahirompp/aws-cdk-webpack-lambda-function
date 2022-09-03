@@ -9,11 +9,13 @@ This library provides constructs for Node.js Lambda function bundled using webpa
 1. install using yarn:
 
    ```sh
-   yarn add -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
-   # npm i -D aws-cdk-webpack-lambda-function @aws-cdk/core @aws-cdk/aws-lambda webpack webpack-cli
+   npm i -D aws-cdk-webpack-lambda-function aws-cdk-lib webpack@5 webpack-cli
    ```
 
-   Note: webpack@5 required.
+   | cdk | aws-cdk-webpack-lambda-function |
+   | --- | ------------------------------- |
+   | v1  | 0.6.0                           |
+   | v2  | 1.0.0                           |
 
 1. add webpack.config.js:
 
